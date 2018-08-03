@@ -23,5 +23,18 @@
         "/assets/**"
       ]
     }
-  }]
+  }],
+  "dataGroups": [
+    {
+      "name": "firebaseAPI",
+      "urls": [
+        "https://laboratoriovivo-3d943.firebaseio.com"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxAge": "1d",
+        "maxSize": 100
+      }
+    }
+  ]
 }

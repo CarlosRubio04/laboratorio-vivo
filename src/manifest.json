@@ -5,7 +5,7 @@
   "background_color": "#005a9e",
   "display": "standalone",
   "Scope": "/",
-  "start_url": "/",
+  "start_url": "http://127.0.0.1:8080",
   "icons": [
     {
       "src": "assets/img/icons/icon-72x72.png",

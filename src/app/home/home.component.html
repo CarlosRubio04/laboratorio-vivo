@@ -1,0 +1,243 @@
+<section class="Hero">
+	<div class="HeroContainer">
+		<div class="first">
+			<img src="../assets/img/rectangle-1-red.svg" alt=":D">
+			<p>construimos</p>
+		</div>
+		<div class="second">
+			<img src="../assets/img/rectangle-2-yellow.svg" alt=":D">
+			<p>soluciones concretas</p>
+		</div>
+		<div class="third">
+			<img src="../assets/img/rectangle-3-blue.svg" alt=":D">
+			<p>a los problemas de la escuela</p>
+		</div>
+	</div>
+</section>
+
+
+<section class="About">
+	<div class="container">
+		<div class="animated-text">
+			<div class="text">
+				#LaboratorioVivo
+			</div>
+		</div>
+		<div class="AboutContainer">
+			<div class="AboutSlider">
+				<div class="AboutSliderContaier">
+					<h4>¿Qué hacemos?</h4>
+					<ngb-carousel>
+						<ng-template ngbSlide>
+							<div class="carousel-content">
+								<p>
+									Laboratorio Vivo es una iniciativa de Secretaría de Educación de Bogotá y United Way – Dividendo por Colombia diseñada para desarrollar las competencias del siglo XXI en los docentes que son tomadores de decisiones, que buscan mejorar la calidad educativa y que quieren ser agentes de cambio como educadores de su escuela y comunidad.
+								</p>
+							</div>
+						</ng-template>
+					</ngb-carousel>
+				</div>
+			</div>
+			<div class="hash">
+				<span>#SoyProfe</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="routes">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-center">¿Cuál es la mejor ruta para ti?</h2>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="routesCards">
+			
+			<div class="item">
+
+				<div class="card">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/design-experience.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Diseñador de Experiencias</h4>
+							<p>
+								Si eliges esta ruta serás capaz de generar estrategias y aplicar herramientas de diagnóstico del contexto, permitiéndote situar al estudiante en el centro del diseño de metodologías, pedagogías y ser un mediador efectivo de las diferencias.
+							</p>
+							<button class="btn btn-outline-warning btn-round" type="button" routerLink="/ruta-uno">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="cardActive" [ngClass]="{'active': visbleOne }">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/design-experience.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Diseñador de Experiencias</h4>
+							<p>
+								Esta ruta es para ti si eres capaz de ponerte en los zapatos del otro.
+							</p>
+							<button class="btn btn-warning btn-round" type="button" (click)="toggleOne()">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="item">
+
+				<div class="card">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/design-enviroment.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Diseñador de Entorno</h4>
+							<p>
+								Si eliges esta ruta serás capaz de generar estrategias y aplicar herramientas para aprovechar el contexto y apoyar el diseño de experiencias pertinentes en la escuela.
+							</p>
+							<button class="btn btn-outline-warning btn-round" type="button" routerLink="/ruta-dos">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="cardActive" [ngClass]="{'active': visbleTow }">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/design-enviroment.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Diseñador de Entorno</h4>
+							<p>
+								Esta ruta es para ti si
+								eres inquieto y te
+								gusta emprender
+								proyectos.
+							</p>
+							<button class="btn btn-warning btn-round" type="button" (click)="toggleSecond()">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="item">
+
+				<div class="card">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/directive.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Gamificador</h4>
+							<p>
+								Si eliges esta ruta serás capaz de generar estrategias y aplicar herramientas que permitan medir la efectividad de tus innovaciones en términos de logro y motivación en los estudiantes.
+							</p>
+							<button class="btn btn-outline-warning btn-round" type="button" routerLink="/ruta-tres">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="cardActive" [ngClass]="{'active': visbleThree }">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/directive.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Gamificador</h4>
+							<p>
+								Esta ruta es para ti si
+								tienes espíritu
+								científico
+							</p>
+							<button class="btn btn-warning btn-round" type="button" (click)="toggleThird()">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="item">
+
+				<div class="card">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/gamificator.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Directivos Docentes</h4>
+							<p>
+								Con esta ruta generarás estrategias y aplicarás herramientas para liderar el cambio y desarrollar las capacidades de tu equipo. 
+							</p>
+							<button class="btn btn-outline-warning btn-round" type="button" routerLink="/ruta-cuatro">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="cardActive" [ngClass]="{'active': visbleFour }">
+					<div class="cardContainer">
+						<div class="picture">
+							<img src="../assets/img/gamificator.svg" alt="Design">
+						</div>
+						<div class="content">
+							<h4>Directivos Docentes</h4>
+							<p>
+								Esta ruta es para ti si te
+								apasiona la innovación
+								educativa y quieres
+								liderar el cambio en tú
+								institución.
+							</p>
+							<button class="btn btn-warning btn-round" type="button" (click)="toggleFourth()">Ver más</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		
+		<div class="routesLine">
+			<app-route-one [@OneLine]='showFirst'></app-route-one>
+			<app-route-tow [@OneLine]='showSecond'></app-route-tow>
+			<app-route-three [@OneLine]='showThird'></app-route-three>
+			<app-route-four [@OneLine]='showFourth'></app-route-four>
+		</div>
+		
+
+	</div>
+</section>
+
+<section class="cta">
+	<div class="button" routerLink="/contacto">
+		<img src="../assets/img/btn.svg" alt="CTA">
+	</div>
+</section>
+
+<section class="calendar">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-center">CALENDARIO 2018</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<mwl-demo-component></mwl-demo-component>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+

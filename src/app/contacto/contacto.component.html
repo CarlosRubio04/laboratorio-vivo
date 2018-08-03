@@ -1,0 +1,118 @@
+<section class="contacto">
+	<div class="contacto-container">
+		<div class="back">
+			<a routerLink="/home">
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</a>
+		</div>
+		<div class="brain">
+			<img src="../assets/img/brain.svg" alt="DXC">
+		</div>
+		<div class="pic"></div>
+		<div class="item">
+			<div class="form-header">
+				<img src="../assets/img/logo-laboratorio.svg" alt="DXC" class="img-responsive">
+				<p class="text-center">
+					Cuéntanos, ¿en qué te podemos ayudar?
+				</p>
+			</div>
+			<form id="formLeads" [formGroup]="rForm"(ngSubmit)="sendData(rForm.value)" autocomplete="off">
+				<div class="form-inputs">
+					<div class="form-group">
+						<input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Nombre Completo">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['nombre'].valid && rForm.controls['nombre'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<input id="documento" formControlName="documento" type="number" class="form-control" placeholder="Documento de identidad">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['documento'].valid && rForm.controls['documento'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<input id="telefono" formControlName="telefono" type="number" class="form-control" placeholder="Teléfono">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['telefono'].valid && rForm.controls['telefono'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<input id="email" formControlName="email" type="email" class="form-control" placeholder="Email">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<select name="ruta" id="ruta" formControlName="ruta" class="form-control" (change)="onChange($event.target.value)">
+							<option value="0" disabled>Ruta</option>
+							<option value="1">Diseñador de experiencias</option>
+							<option value="2">Diseñador de entorno</option>
+							<option value="3">Gamificador</option>
+							<option value="4">Directivos docentes</option>
+						</select>
+						<div class="form-control-feedback" *ngIf="!rForm.controls['ruta'].valid && rForm.controls['ruta'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+
+					<div class="form-group" *ngIf=(showInputs)>
+						<input id="rutaUno" formControlName="rutaUno" type="number" class="form-control" placeholder="# personas a capacitar en ruta Diseñador de experiencias">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['rutaUno'].valid && rForm.controls['rutaUno'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+					<div class="form-group" *ngIf=(showInputs)>
+						<input id="rutaDos" formControlName="rutaDos" type="number" class="form-control" placeholder="# personas a capacitar en ruta Diseñador de entorno">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['rutaDos'].valid && rForm.controls['rutaDos'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+					<div class="form-group" *ngIf=(showInputs)>
+						<input id="rutaTres" formControlName="rutaTres" type="number" class="form-control" placeholder="# personas a capacitar en ruta Gamificador">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['rutaTres'].valid && rForm.controls['rutaTres'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<input id="institucion" formControlName="institucion" type="text" class="form-control" placeholder="Institución Educativa">
+						<div class="form-control-feedback" *ngIf="!rForm.controls['institucion'].valid && rForm.controls['institucion'].touched">
+							{{ titleAlert }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-warning btn-round" type="submit" [disabled]="!rForm.valid">Enviar
+						</button>
+					</div>
+				</div>
+			</form>
+			<ngb-alert type="danger"  [dismissible]="false" *ngIf="showError">
+				<div class="container">
+					<ng-container>
+						<i class="nc-icon nc-bell-55"></i>
+					</ng-container>
+
+					Hubo un error al enviar la Información
+				</div>
+			</ngb-alert>
+
+			<ngb-alert type="success"  [dismissible]="false" *ngIf="showSucces">
+				<div class="container">
+					<ng-container>
+						<i class="nc-icon nc-bell-55"></i>
+					</ng-container>
+					La información se ha enviado correctamente
+				</div>
+			</ngb-alert>
+		</div>
+	</div>
+</section>

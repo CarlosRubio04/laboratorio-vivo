@@ -1,0 +1,104 @@
+@import '../../assets/sass/app-kit/_variables.scss';
+@import '../../assets/sass/app-kit/_mixins.scss';
+
+.contacto {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999999999;
+	width: 100%;
+
+	@include for-phone-only {
+		height: 100vh;
+		overflow-y: scroll;
+	}
+
+	&-container {
+		position: relative;
+		min-height: 100vh;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		align-items: center;
+		justify-content: center;
+		grid-template-areas: "pic form";
+		background-color: $dxc-blue;
+
+		@include for-phone-only {
+			grid-template-areas: "form form";
+		}
+
+		.item {
+			padding: 2em 4em;
+			grid-area: form;
+			animation: fadeInRight 1s ease-in-out;
+			@include for-phone-only {
+				padding: 1em 1em;
+			}
+
+			.form-header {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				flex-wrap: wrap;
+				width: 100%;
+				margin-bottom: 2em;
+				p {
+					color: $white-color;
+					margin-top: 1em;
+				}
+			}
+		}
+		.pic {
+			grid-area: pic;
+			background-image: url(../../assets/img/contact.jpg);
+			background-size: cover;
+			background-position: left top;
+			height: 100vh;
+
+			@include for-phone-only {
+				display: none;
+			}
+		}
+
+		.brain {
+			position: absolute;
+			z-index: 2;
+			top: calc(50% - 30px);
+			left: calc(50% - 30px);
+			background-color: $white-color;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include for-phone-only {
+				display: none;
+			}
+		}
+		.back {
+			position: absolute;
+			z-index: 2;
+			top: 60px;
+			right: 60px;
+
+			a {
+				color: $white-color;
+			}
+			@include for-phone-only {
+				top: 20px;
+				right: 20px
+			}
+		}
+		.form-group {
+			margin-top: 22px;
+
+			.btn {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
+}

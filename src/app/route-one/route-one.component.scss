@@ -1,0 +1,340 @@
+@import '../../assets/sass/app-kit/_variables.scss';
+@import '../../assets/sass/app-kit/_mixins.scss';
+
+
+.route {
+
+	padding: 2em 0;
+	position: relative;
+	
+	&-container {
+		position: relative;
+		animation: fadeInDown 2s ease-in-out forwards;
+
+	}
+
+	&-title {
+		width: 100%;
+		position: relative;
+		display: grid;
+		grid-template-columns: 100px 1fr;
+		grid-auto-rows: repeat(3, 50px);
+		grid-template-areas: "ruta ruta"
+		". duracion"
+		"nombre nombre";
+
+	}
+	.u-route {
+		grid-area: ruta;
+		animation: fadeInDown .5s ease-in-out forwards;
+
+		h4 {
+			color: $dxc-blue;
+			text-transform: uppercase;
+			font-size: 28px;
+			margin-top: 0;
+		}
+	}
+	&-duration {
+		grid-area: duracion;
+		border-top: 1px solid $dxc-orange;
+		animation: fadeInRight .8s ease-in-out forwards;
+
+		ul {
+			width: 100%;
+			margin-bottom: 0;
+			padding-left: 0;
+			display: flex;
+			justify-content: flex-end;
+			align-items: baseline;
+			list-style: none;
+
+
+			li {
+				background-color: $dxc-orange;
+				border-right: 1px solid $white-color;
+				padding: 4px 12px;
+				color: $white-color;
+
+				&:last-child {
+					border-right: 0px;
+				}
+
+			}
+		}
+	}
+	&-name {
+		grid-area: nombre;
+		position: relative;
+		top: -25px;
+		animation: fadeInUp 1s ease-in-out forwards;
+
+		h1 {
+			color: $dxc-blue;
+			margin-top: 0;
+			font-size: 34px;
+			font-weight: 800;
+			text-transform: uppercase;
+
+		}
+	}
+
+	&-content {
+		padding: 4em 0;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		grid-template-rows: 1fr;
+
+
+
+		.item {
+			display: grid;
+			grid-auto-columns: 1fr;
+			grid-template-rows: 110px 54px 110px;
+
+
+			&:first-child {
+				.item-week {
+					box-shadow: none;
+					&:before {
+						content: "";
+						position: absolute;
+						left: 0;
+						border-top: 27px solid transparent;
+						border-right: 27px solid transparent;
+						border-bottom: 27px solid transparent;
+						border-left: 27px solid $gray-input-bg;
+
+					}
+				}
+			}
+
+			&:last-child {
+				.item-week {
+					background-color: #788EC7;
+					&:after {
+						content: "";
+						position: absolute;
+						right: -54px;
+						border-top: 27px solid transparent;
+						border-right: 27px solid transparent;
+						border-bottom: 27px solid transparent;
+						border-left: 27px solid #788EC7;
+
+					}
+				}
+				.item-descp {
+					p {
+						color:#788EC7;
+					}
+					svg {
+						.cls-5{fill:#788EC7;}
+						.cls-12{stroke:#788EC7;}
+					}
+				}
+			}
+
+			&:nth-child(odd) {
+				grid-template-areas: "desc"
+				"week"
+				".";
+
+			}
+			&:nth-child(even) {
+				grid-template-areas: "."
+				"week"
+				"desc";
+
+
+
+				.item-descp {
+					top: -24px;
+	
+					svg {
+						transform: rotate(180deg);
+	
+
+					}
+				}
+			}
+
+			&:nth-of-type(1){
+				.item-week{
+					animation: fadeInLeft .2s ease-in-out forwards;
+				}
+				.item-descp {
+					animation: fadeInUp .4s ease-in-out forwards;
+				}
+			}
+			&:nth-of-type(2){
+				.item-week{
+					animation: fadeInLeft .4s ease-in-out forwards;
+				}
+				.item-descp {
+					animation: fadeInUp .8s ease-in-out forwards;
+				}
+			}
+			&:nth-of-type(3){
+				.item-week{
+					background-color: $dxc-orange-dark;
+					animation: fadeInLeft .8s ease-in-out forwards;
+				}
+				.item-descp {
+					animation: fadeInUp 1.2s ease-in-out forwards;
+					p {
+						color: $dxc-orange-dark;
+					}
+					svg {
+						.cls-5{fill:$dxc-orange-dark;}
+						.cls-12{stroke:$dxc-orange-dark;}
+					}
+				}
+			}
+			&:nth-of-type(4){
+				.item-week{
+					animation: fadeInLeft 1.2s ease-in-out forwards;
+				}
+				.item-descp {
+					animation: fadeInUp 1.8s ease-in-out forwards;
+				}
+			}
+			&:nth-of-type(5){
+				.item-week{
+					animation: fadeInLeft 1.8s ease-in-out forwards;
+				}
+				.item-descp {
+					animation: fadeInUp 2.2s ease-in-out forwards;
+				}
+			}
+			&:nth-of-type(6){
+				.item-week{
+					animation: fadeInLeft 2.2s ease-in-out forwards;
+				}
+				.item-descp {
+					animation: fadeInUp 2.6s ease-in-out forwards;
+				}
+			}
+			&:nth-of-type(7){
+				.item-week{
+					animation: fadeInLeft 2.6s ease-in-out forwards;
+				}
+				.item-descp {
+					animation: fadeInUp 3s ease-in-out forwards;
+				}
+			}
+
+			&-descp {
+				grid-area: desc;
+				position: relative;
+				z-index: 2;
+				top: 12px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-end;
+
+				p {
+					text-align: center;
+					color: $dxc-orange;
+
+				}
+				svg {
+					height: 70px;
+					width: auto;
+
+					.cls-1,.cls-12,.cls-2{fill:none;}
+					.cls-1{clip-rule:evenodd;}
+					.cls-3{clip-path:url(#clip-path);}
+					.cls-4{clip-path:url(#clip-path-2);}
+					.cls-5{fill:$dxc-orange;}
+					.cls-6{clip-path:url(#clip-path-3);}
+					.cls-7{isolation:isolate;}
+					.cls-8{clip-path:url(#clip-path-5);}
+					.cls-9{clip-path:url(#clip-path-6);}
+					.cls-10{fill:#fff;}
+					.cls-11{clip-path:url(#clip-path-8);}
+					.cls-12{stroke:$dxc-orange;stroke-miterlimit:10;stroke-width:2px;}
+					.cls-13{clip-path:url(#clip-path-10);}
+					.cls-14{clip-path:url(#clip-path-12);}
+					.cls-15{clip-path:url(#clip-path-13);}
+
+
+
+				}
+			}
+
+			&-week {
+				grid-area: week;
+				position: relative;
+				background-color: $dxc-orange;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				-webkit-box-shadow: inset 2px 0px 2px 0px rgba(0,0,0,0.12);
+				-moz-box-shadow: inset 2px 0px 2px 0px rgba(0,0,0,0.12);
+				box-shadow: inset 2px 0px 2px 0px rgba(0,0,0,0.12);
+
+
+				p {
+					color: $white-color;
+					text-align: center;
+				}
+
+			}
+		}
+	}
+
+
+	&-objective {
+		position: relative;
+		background-color: $white-color;
+		padding: 2em;
+		border-radius: 14px;
+		-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.10);
+		-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.10);
+		box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.10);
+		animation: fadeInUp 2s ease-in-out forwards;
+
+
+
+		&:before {
+			content: "";
+			border-radius: 10px;
+			border-top: 60px solid transparent;
+			border-right: 110px solid transparent;
+			border-bottom: 60px solid $white-color;
+			border-left: 110px solid transparent;
+			position: absolute;
+			top: -80px;
+			left: calc(50% - 110px);
+		}	
+
+		&-title {
+			display: block;
+			padding: 1em 0;
+			&:after {
+				content: "";
+				width: 60px;
+				display: block;
+				border-top: 2px solid $dxc-orange;
+				margin: 0 auto;
+			}
+			h3 {
+				text-transform: uppercase;
+				font-size: 30px;
+				font-weight: 700;
+				margin-top: 0;
+				text-align: center;
+
+			}
+		}
+		p {
+			text-align: center;
+			font-size: 18px;
+			font-weight: 500;
+		}
+	}
+}
+
+

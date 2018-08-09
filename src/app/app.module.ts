@@ -21,6 +21,13 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { LoginComponent } from './login/login.component';
+import { SinginComponent } from './singin/singin.component';
+import { ProfileComponent } from './profile/profile.component';
+
+import { MainService } from './services/main.service';
+import { AutorizacionService } from './services/autorizacion.service';
+import { MyGuard } from './services/my-guard.service.guard';
 
 import { HomeModule } from './home/home.module';
 
@@ -39,7 +46,10 @@ export const firebaseConfig = {
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    ContactoComponent
+    ContactoComponent,
+    LoginComponent,
+    SinginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +68,7 @@ export const firebaseConfig = {
     CalendarModule.forRoot(),
     CalendarUtilsModule
   ],
-  providers: [],
+  providers: [MainService, AutorizacionService, MyGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

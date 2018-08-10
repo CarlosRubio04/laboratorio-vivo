@@ -20,6 +20,15 @@ export class MainService { constructor(private afDB:AngularFireDatabase, private
     public guardarCurso(curso) {
         this.afDB.database.ref('cursos/'+curso.id).set(curso);
     }
+
+    public saveUser(user) {
+        this.afDB.database.ref('users/' + user.uId).set(user);
+    }
+
+    public getUser(id) {
+        return this.afDB.object('users/' + id);
+    } 
+
     public editarCurso(curso) {
         this.afDB.database.ref('cursos/'+curso.id).set(curso);
     }

@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SwUpdate } from '@angular/service-worker';
+import { AutorizacionService } from './services/autorizacion.service';
 
 @Component({
     selector: 'app-root',
@@ -16,12 +17,34 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    constructor( private renderer : Renderer,
+    loggedIn = false;
+    loggedUser: any = null;
+
+    constructor( private renderer: Renderer,
         private router: Router,
         @Inject(DOCUMENT,) private document: any,
         private element : ElementRef,
         public location: Location,
-        private swUpdate: SwUpdate,) {}
+        private swUpdate: SwUpdate,
+        private autorizacionService: AutorizacionService) {
+
+            this.autorizacionService.isLogged()
+                .subscribe((result) => {
+                    if (result && result.uid) {
+                        this.loggedIn = true;
+                        setTimeout(() => {
+                            this.loggedUser = this.autorizacionService.getUser().currentUser.uid;
+                            console.log(this.loggedUser);
+                        }, 500);
+                    } else {
+                        this.loggedIn = false;
+                    }
+                }, (error) => {
+                    this.loggedIn = false;
+            });
+
+        }
+        
     ngOnInit() {
 
         if (this.swUpdate.isEnabled) {
@@ -63,10 +86,10 @@ export class AppComponent implements OnInit {
         }
 
     }
-    removeFooter() {
+    removeNavigation() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice( 1 );
-        if(titlee === 'signup' || titlee === 'nucleoicons'){
+        if(titlee === 'singin' || titlee === 'login'){
             return false;
         }
         else {

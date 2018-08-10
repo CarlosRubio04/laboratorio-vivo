@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AutorizacionService } from '../../services/autorizacion.service';
 
 @Component({
     selector: 'app-navbar',
@@ -10,8 +11,32 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element : ElementRef) {
+    loggedIn = false;
+    loggedUser: any = null;
+
+    constructor(public location: Location,
+                private element: ElementRef,
+                private autorizacionService: AutorizacionService) {
         this.sidebarVisible = false;
+
+        this.autorizacionService.isLogged()
+            .subscribe((result) => {
+                if (result && result.uid) {
+                    this.loggedIn = true;
+                    setTimeout(() => {
+                        this.loggedUser = this.autorizacionService.getUser().currentUser.uid;
+                        console.log(this.loggedUser);
+                    }, 500);
+                } else {
+                    this.loggedIn = false;
+                }
+            }, (error) => {
+                this.loggedIn = false;
+        });
+    }
+
+    loggout() {
+        this.autorizacionService.loggout();
     }
 
     ngOnInit() {

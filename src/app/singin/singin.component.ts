@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AutorizacionService } from '../services/autorizacion.service'
 
 @Component({
@@ -12,16 +13,22 @@ export class SinginComponent {
   callBack:boolean = false;
   callBackMessage:string = '';
 
-  constructor(private autorizacionService:AutorizacionService) {}
+  constructor(private autorizacionService: AutorizacionService, private router: Router) {}
 
   registrar() {
   	this.autorizacionService.singin(this.registro.email, this.registro.password);
-    this.callBack = true;
-    if (this.autorizacionService.callBack) {
-       this.callBackMessage = 'Usuario Registrado Correctamente';
-    }else {
-      this.callBackMessage = 'Hubo un error al crear el usuario';
-    }
+  }
+  googleSingIn() {
+    this.autorizacionService.loginWithGoogle()
+      .then(rsp => {
+        console.log(rsp);
+        console.log('Todo bello');
+        this.router.navigate(['/complete']);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log('Todo malo');
+      });
   } 
   close() {
     this.callBack = false;

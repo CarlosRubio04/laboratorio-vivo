@@ -1,0 +1,88 @@
+<section class="contacto">
+  <div class="contacto-container">
+    <div class="back">
+      <a routerLink="/home">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="brain">
+      <img src="../assets/img/brain.svg" alt="DXC">
+    </div>
+    <div class="pic"></div>
+    <div class="item">
+      <div class="form-header">
+        <img src="../assets/img/logo-laboratorio.svg" alt="DXC" class="img-responsive">
+        <p class="text-center">
+          Completa tu perfil
+        </p>
+      </div>
+        <div class="form-inputs">
+          <div class="form-group">
+            <input id="nombre" type="text" class="form-control" placeholder="Nombre Completo" [(ngModel)]="user.name">
+          </div>
+
+          <div class="form-group">
+            <input id="documento" type="number" class="form-control" placeholder="Documento de identidad" [(ngModel)]="user.document">
+          </div>
+
+          <div class="form-group">
+            <input id="telefono" type="number" class="form-control" placeholder="Teléfono" [(ngModel)]="user.phone">
+          </div>
+
+          <div class="form-group">
+            <select name="ruta" id="ruta" class="form-control" (change)="onChange($event.target.value)" [(ngModel)]="user.route">
+              <option value="0" disabled>Ruta</option>
+              <option value="1">Diseñador de experiencias</option>
+              <option value="2">Diseñador de entorno</option>
+              <option value="3">Gamificador</option>
+              <option value="4">Directivos docentes</option>
+            </select>
+          </div>
+
+
+          <div class="form-group" *ngIf=(showInputs)>
+            <input id="rutaUno" type="number" class="form-control" placeholder="# personas a capacitar en ruta Diseñador de experiencias" [(ngModel)]="directive.one">
+          </div>
+
+          <div class="form-group" *ngIf=(showInputs)>
+            <input id="rutaDos" type="number" class="form-control" placeholder="# personas a capacitar en ruta Diseñador de entorno" [(ngModel)]="directive.two">
+          </div>
+
+          <div class="form-group" *ngIf=(showInputs)>
+            <input id="rutaTres" type="number" class="form-control" placeholder="# personas a capacitar en ruta Gamificador" [(ngModel)]="directive.three">
+          </div>
+
+
+          <div class="form-group">
+            <input id="institucion" type="text" class="form-control" placeholder="Institución Educativa" [(ngModel)]="user.institution">
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-warning btn-round" type="submit" (click)="createProfile()">
+              Enviar
+            </button>
+          </div>
+        </div>
+
+
+      <ngb-alert type="danger" [dismissible]="false" *ngIf="showError">
+        <div class="container">
+          <ng-container>
+            <i class="nc-icon nc-bell-55"></i>
+          </ng-container>
+
+          Hubo un error al enviar la Información
+        </div>
+      </ngb-alert>
+
+      <ngb-alert type="success" [dismissible]="false" *ngIf="showSucces">
+        <div class="container">
+          <ng-container>
+            <i class="nc-icon nc-bell-55"></i>
+          </ng-container>
+          La información se ha enviado correctamente
+        </div>
+      </ngb-alert>
+    </div>
+  </div>
+</section>

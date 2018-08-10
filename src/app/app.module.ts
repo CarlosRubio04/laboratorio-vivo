@@ -24,6 +24,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { LoginComponent } from './login/login.component';
 import { SinginComponent } from './singin/singin.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CompleteComponent } from './complete/complete.component';
 
 import { MainService } from './services/main.service';
 import { AutorizacionService } from './services/autorizacion.service';
@@ -49,7 +50,8 @@ export const firebaseConfig = {
     ContactoComponent,
     LoginComponent,
     SinginComponent,
-    ProfileComponent
+    ProfileComponent,
+    CompleteComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { routeFour } from './route-four/route-four.component';
 import { LoginComponent } from './login/login.component';
 import { SinginComponent } from './singin/singin.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CompleteComponent } from './complete/complete.component';
 
 
 import { MyGuard } from './services/my-guard.service.guard';
@@ -29,6 +30,7 @@ const routes: Routes =[
     { path: 'login',            component: LoginComponent },
     { path: 'singin',           component: SinginComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [MyGuard] },
+    { path: 'complete', component: CompleteComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

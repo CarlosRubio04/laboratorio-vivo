@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth/auth';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
 
 
 @Injectable()
@@ -14,9 +15,8 @@ export class AutorizacionService {
 	public login = (email, password) => {
 		this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
 			.then((response) => {
-				// alert('Usuario Logeado');
-				// console.log(response);
-				this.router.navigate(['cursos']);
+				this.router.navigate(['/home']);
+				console.log('hola');
 			})
 			.catch((error)=> {
 				alert('Error');
@@ -26,17 +26,16 @@ export class AutorizacionService {
 	public singin = (email, password) => {
 		this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
 			.then((response) => {
-				// alert('Usuario Registrado');
-				// console.log(response);
-				//this.router.navigate(['cursos']);
-				this.callBack = true;
+				this.router.navigate(['/complete']);
 			})
 			.catch((error)=> {
-				// alert('Error');
-				// console.log(error);
 				this.callBack = false;
 			})
 	};
+
+	loginWithGoogle() {
+		return this.angularFireAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+	}
 
 	public isLogged() {
 		return this.angularFireAuth.authState;
